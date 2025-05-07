@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="DnButton">
+    <declare-styleable name="MateButton">
 
         <attr name="backgroundTint" format="color" />
         <attr name="strokeColor" format="color" />
@@ -16,7 +16,7 @@
         <attr name="useScale" format="boolean" />
     </declare-styleable>
 
-    <style name="DnButton.Theme" parent="">
+    <style name="MateButton.Theme" parent="">
         <item name="android:gravity">center</item>
         <item name="android:textColor">#fff</item>
         <item name="android:minWidth">88dp</item>
