@@ -66,10 +66,10 @@ public class MateButton extends AppCompatButton {
         float cornerTopStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerRadius, -1);
         float cornerTopEndRadius, cornerBottomEndRadius, cornerBottomStartRadius;
         if (cornerTopStartRadius == -1) {
-            cornerTopStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopStartRadius, ButtonUtilities.dp(context, 15));
-            cornerTopEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopEndRadius, ButtonUtilities.dp(context, 15));
-            cornerBottomEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomEndRadius, ButtonUtilities.dp(context, 15));
-            cornerBottomStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomStartRadius, ButtonUtilities.dp(context, 15));
+            cornerTopStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopStartRadius, ButtonUtilities.dp(context, 2));
+            cornerTopEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopEndRadius, ButtonUtilities.dp(context, 2));
+            cornerBottomEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomEndRadius, ButtonUtilities.dp(context, 2));
+            cornerBottomStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomStartRadius, ButtonUtilities.dp(context, 2));
             cornerTopStartRadius = ButtonUtilities.px(context, cornerTopStartRadius);
             cornerTopEndRadius = ButtonUtilities.px(context, cornerTopEndRadius);
             cornerBottomEndRadius = ButtonUtilities.px(context, cornerBottomEndRadius);
