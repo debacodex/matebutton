@@ -19,35 +19,35 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 
-public class MeteButton extends AppCompatButton {
+public class MateButton extends AppCompatButton {
 
     private boolean touchStarted;
     private boolean canButtonScale;
     private float scale;
     private float elevation;
 
-    public MeteButton(@NonNull Context context) {
+    public MateButton(@NonNull Context context) {
         this(context, null);
     }
 
-    public MeteButton(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public MateButton(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MeteButton(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MateButton(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(ButtonUtilities.applyTheme(context, attrs), attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         setBackgroundTintList(null);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MeteButton, defStyleAttr, R.style.MeteButton_Theme);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MateButton, defStyleAttr, R.style.MateButton_Theme);
         TypedValue value = new TypedValue();
-        typedArray.getValue(R.styleable.MeteButton_rippleColor, value);
+        typedArray.getValue(R.styleable.MateButton_rippleColor, value);
         int rippleColor = value.data;
-        elevation = typedArray.getDimension(R.styleable.MeteButton_elevation, 0);
-        scale = typedArray.getFloat(R.styleable.MeteButton_scale, 0.97f);
-        canButtonScale = typedArray.getBoolean(R.styleable.MeteButton_useScale, false);
+        elevation = typedArray.getDimension(R.styleable.MateButton_elevation, 0);
+        scale = typedArray.getFloat(R.styleable.MateButton_scale, 0.97f);
+        canButtonScale = typedArray.getBoolean(R.styleable.MateButton_useScale, false);
         Drawable drawable = getBackground();
         if (!(drawable instanceof ColorDrawable)) {
             if (drawable != null) {
@@ -60,16 +60,16 @@ public class MeteButton extends AppCompatButton {
                 return;
             }
         }
-        int backgroundTint = typedArray.getColor(R.styleable.MeteButton_backgroundTint, Color.BLACK);
-        int strokeColor = typedArray.getColor(R.styleable.MeteButton_strokeColor, Color.TRANSPARENT);
-        float strokeWidth = typedArray.getDimension(R.styleable.MeteButton_strokeWidth, 0);
-        float cornerTopStartRadius = typedArray.getDimension(R.styleable.MeteButton_cornerRadius, -1);
+        int backgroundTint = typedArray.getColor(R.styleable.MateButton_backgroundTint, Color.BLACK);
+        int strokeColor = typedArray.getColor(R.styleable.MateButton_strokeColor, Color.TRANSPARENT);
+        float strokeWidth = typedArray.getDimension(R.styleable.MateButton_strokeWidth, 0);
+        float cornerTopStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerRadius, -1);
         float cornerTopEndRadius, cornerBottomEndRadius, cornerBottomStartRadius;
         if (cornerTopStartRadius == -1) {
-            cornerTopStartRadius = typedArray.getDimension(R.styleable.MeteButton_cornerTopStartRadius, ButtonUtilities.dp(context, 15));
-            cornerTopEndRadius = typedArray.getDimension(R.styleable.MeteButton_cornerTopEndRadius, ButtonUtilities.dp(context, 15));
-            cornerBottomEndRadius = typedArray.getDimension(R.styleable.MeteButton_cornerBottomEndRadius, ButtonUtilities.dp(context, 15));
-            cornerBottomStartRadius = typedArray.getDimension(R.styleable.MeteButton_cornerBottomStartRadius, ButtonUtilities.dp(context, 15));
+            cornerTopStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopStartRadius, ButtonUtilities.dp(context, 15));
+            cornerTopEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerTopEndRadius, ButtonUtilities.dp(context, 15));
+            cornerBottomEndRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomEndRadius, ButtonUtilities.dp(context, 15));
+            cornerBottomStartRadius = typedArray.getDimension(R.styleable.MateButton_cornerBottomStartRadius, ButtonUtilities.dp(context, 15));
             cornerTopStartRadius = ButtonUtilities.px(context, cornerTopStartRadius);
             cornerTopEndRadius = ButtonUtilities.px(context, cornerTopEndRadius);
             cornerBottomEndRadius = ButtonUtilities.px(context, cornerBottomEndRadius);

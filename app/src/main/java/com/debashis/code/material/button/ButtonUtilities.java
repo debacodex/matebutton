@@ -71,7 +71,7 @@ public final class ButtonUtilities {
     }
 
     public static Context applyTheme(Context baseContext, AttributeSet attributeSet) {
-        ContextThemeWrapper newContext = new ContextThemeWrapper(baseContext, R.style.MeteButton_Theme);
+        ContextThemeWrapper newContext = new ContextThemeWrapper(baseContext, R.style.MateButton_Theme);
         int androidThemeOverlayId = obtainAndroidThemeOverlayId(newContext, attributeSet);
         if (androidThemeOverlayId != 0) {
             newContext.getTheme().applyStyle(androidThemeOverlayId, true);
