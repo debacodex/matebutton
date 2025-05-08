@@ -124,7 +124,7 @@ Use material button in the layout via xml
     app:backgroundTint="#0091EA"
     app:cornerRadius="2dp"
     app:useScale="true"/>
-
+```
 ### Button 3,4 Design
 
 <img src="https://github.com/debanikita/android-material/blob/2ca80fcddd1ba03379d01579882346f18208912c/20241004_220803.png"/>
@@ -154,7 +154,7 @@ Use material button in the layout via xml
     app:cornerTopEndRadius="30dp"
     app:useScale="true"
     android:layout_marginTop="@dimen/button_margin_top"/>
-
+```
 ### Button 5,6 Design
 
 <img src="https://github.com/debanikita/android-material/blob/74b509253c36c8f92da01811c9efb1989ab2e401/20241004_221257.png"/
@@ -184,7 +184,7 @@ Use material button in the layout via xml
     app:backgroundTint="#FF1744"
     app:useScale="true"
     android:layout_marginTop="@dimen/button_margin_top"/>
-
+```
 ### Button 7,8 Design
 
 <img src="https://github.com/debanikita/android-material/blob/143cbf549890a5d608f1cac1385cdb240ca17a73/20241004_221841.png"/>
@@ -211,7 +211,7 @@ Use material button in the layout via xml
    app:cornerRadius="30dp"
    app:useScale="true"
    android:layout_marginTop="@dimen/button_margin_top"/>
-
+```
 ### Button 9,10 Design
 
 <img src="https://github.com/debanikita/android-material/blob/b1931a8d61c031e4fecd9c5e0df108464e69396f/20241004_222405.png"/>
@@ -244,7 +244,7 @@ Use material button in the layout via xml
     android:text="Me  ?"
     android:textColor="#FFFFFF"
     android:layout_marginTop="@dimen/button_margin_top"/>
-
+```
 ## Author & support
 This project was created by [Debashis Sabar](https://www.instagram.com/mr_deba_000) .
 > You can help us to keep my open source projects up to date!
