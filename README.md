@@ -11,7 +11,7 @@
 # Coming Soon Gradient Button Source Code  ❤️
 
 ## Screenshot
-<img src="[https://github.com/debacodex/matebutton/blob/bbf38cb723c0ee81f024c95527a17e6f74d84d02/Screenshot_20250508-120340.Mate%20Button.png]"/>
+<img src="https://github.com/debacodex/matebutton/blob/bbf38cb723c0ee81f024c95527a17e6f74d84d02/Screenshot_20250508-120340.Mate%20Button.png"/>
 
 ## Getting Started
 
