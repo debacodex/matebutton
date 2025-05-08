@@ -108,7 +108,7 @@ Use material button in the layout via xml
 <com.debashis.code.material.button.MateButton
     android:id="@+id/MateButton1"
     android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	   android:layout_height="wrap_content"
 	app:backgroundTint="#0091EA"
 	app:cornerRadius="2dp"
 	app:useScale="true"
