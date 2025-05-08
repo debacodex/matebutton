@@ -78,7 +78,7 @@ materialButton.setBackgroundParamsList(drawableParams, rippleParams);
 
 Use material button in the layout via xml
 ```XML
-<com.debashis.code.material.MateButton
+<com.debashis.code.material.button.MateButton
     android:id="@+id/materialButton"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -95,6 +95,7 @@ Use material button in the layout via xml
     app:strokeWidth="0dp"
     app:scale="1.03"
     app:useScale="true" />
+    
 ```
 # Example
 
@@ -104,33 +105,26 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.code.material.MateButton
+<com.debashis.code.material.button.MateButton
     android:id="@+id/MateButton1"
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:layout_marginHorizontal="10dp"
-    android:text="Love"
-    app:cornerRadius="2dp"
-    app:rippleColor="@color/white"
-    app:strokeColor="@color/white"
-    app:strokeWidth="0dp"
-    app:elevation="1dp"
-    app:useScale="true"
-    app:backgroundTint="#651FFF"/>
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	app:backgroundTint="#0091EA"
+	app:cornerRadius="2dp"
+	app:useScale="true"
+	android:textColor="#FFFFFF"
+	android:text="Love"/>
     
-<com.debashis.code.material.MateButton
-    android:id="@+id/DnButton2"
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    app:cornerRadius="2dp"
-    app:rippleColor="@color/white"
-    app:strokeColor="@color/white"
-    app:strokeWidth="0dp"
-    app:elevation="1dp"
-    app:useScale="true"
-    android:text="Java"
-    android:drawableStart="@drawable/language_java"
-    app:backgroundTint="#651FFF"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton2"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:drawableEnd="@drawable/ic_language_java"
+	android:text="Java"
+	app:backgroundTint="#0091EA"
+	app:cornerRadius="2dp"
+	app:useScale="true"/>
+
     
 ```
 ### Button 3,4 Design
@@ -139,76 +133,65 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.code.material.MateButton
+<com.debashis.code.material.button.MateButton
     android:id="@+id/DnButton3"
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:text="Python"
-    app:cornerRadius="30dp"
-    app:rippleColor="@color/white"
-    app:strokeColor="@color/white"
-    app:strokeWidth="0dp"
-    app:elevation="1dp"
-    app:useScale="true"
-    android:drawableStart="@drawable/language_python"
-    app:backgroundTint="#FF1744"/>
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+	app:backgroundTint="#FF4081"
+	android:drawableStart="@drawable/ic_language_python"
+	app:cornerBottomStartRadius="30dp"
+	app:cornerTopStartRadius="30dp"
+	app:useScale="true"
+	android:text="Python"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
     
-<com.debashis.code.material.MateButton
+<com.debashis.code.material.button.MateButton
     android:id="@+id/DnButton4"
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:layout_marginHorizontal="10dp"
-    android:text="Xml"
-    app:cornerRadius="30dp"
-    app:rippleColor="@color/white"
-    app:strokeColor="@color/white"
-    app:strokeWidth="0dp"
-    app:elevation="1dp"
-    app:useScale="true"
-    android:drawableEnd="@drawable/xml"
-    app:backgroundTint="#FF1744"
-    android:layout_marginBottom="10dp"/>
+    android:layout_width="wrap_content"
+   	android:layout_height="wrap_content"
+	android:drawableEnd="@drawable/ic_xml"
+	android:text="Xml"
+	app:backgroundTint="#FF4081"
+	app:cornerBottomEndRadius="30dp"
+	app:cornerTopEndRadius="30dp"
+	app:useScale="true"
+    android:layout_marginTop="@dimen/button_margin_top"/>
+
     		
 ```
 
 ### Button 5,6 Design
 
-<img src="https://github.com/debanikita/android-material/blob/74b509253c36c8f92da01811c9efb1989ab2e401/20241004_221257.png"/>
+<img src="https://github.com/debanikita/android-material/blob/74b509253c36c8f92da01811c9efb1989ab2e401/20241004_221257.png"/
 
 ```XML
 
-<com.debashis.code.material.MateButton
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:text="Github"
-    app:elevation="1dp"
-    android:layout_marginHorizontal="10dp"
-    android:drawableStart="@drawable/github"
-    app:backgroundTint="#FF4081"
-    app:cornerBottomStartRadius="30dp"
-    app:cornerTopStartRadius="30dp"
-    app:cornerBottomEndRadius="0dp"
-    app:cornerTopEndRadius="0dp"
-    app:rippleColor="#ffffff"
-    app:useScale="true"
-    android:id="@+id/DnButton9"
-    android:layout_marginBottom="10dp"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+	android:drawableStart="@drawable/ic_github"
+	app:cornerBottomStartRadius="30dp"
+	app:cornerTopEndRadius="30dp"
+	android:text="Github"
+	app:backgroundTint="#FF1744"
+	app:useScale="true"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
     	
-<com.debashis.code.material.MateButton
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:text="React"
-    app:elevation="1dp"
-    android:layout_marginHorizontal="10dp"
-    android:drawableEnd="@drawable/react"
-    app:backgroundTint="#FF4081"
-    app:cornerBottomStartRadius="0dp"
-    app:cornerTopStartRadius="0dp"
-    app:cornerBottomEndRadius="30dp"
-    app:cornerTopEndRadius="30dp"
-    app:rippleColor="#ffffff"
-    app:useScale="true"
-    android:id="@+id/DnButton10"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+	android:drawableEnd="@drawable/ic_react"
+	app:cornerTopStartRadius="30dp"
+	app:cornerBottomEndRadius="30dp"
+	android:text="React"
+	app:backgroundTint="#FF1744"
+	app:useScale="true"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
    
 ```
 
@@ -218,38 +201,27 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.code.material.MateButton
-    android:layout_width="150dp"
-   	android:layout_height="40dp"
-    android:text="Debashis"
-   	android:layout_marginHorizontal="10dp"
-   	android:textColor="#ffffff"
-   	app:backgroundTint="#00C853"
-   	app:cornerBottomEndRadius="0dp"
-   	app:cornerTopStartRadius="0dp"
-   	app:elevation="1dp"
-   	app:rippleColor="#ffffff"
-   	app:scale="1.03"
-   	app:useScale="true"
-   	android:id="@+id/DnButton7"
-   	android:layout_marginBottom="10dp"/>
-   
-<com.debashis.code.material.MateButton
-   	android:layout_width="150dp"
-   	android:layout_height="40dp"
-   	android:text="Html5"
-   	android:layout_marginHorizontal="10dp"
-   	android:textColor="#ffffff"
-   	app:backgroundTint="#00C853"
-   	app:cornerBottomEndRadius="0dp"
-   	app:cornerTopStartRadius="0dp"
-   	app:elevation="1dp"
-   	app:rippleColor="#ffffff"
-   	app:scale="1.03"
-   	app:useScale="true"
-   	android:drawableStart="@drawable/language_html5"
-   	android:id="@+id/DnButton8"
-    android:layout_marginBottom="10dp"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton7"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Debashis"
+	app:backgroundTint="#00C853"
+	app:cornerRadius="30dp"
+	app:useScale="true"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
+<com.debashis.code.material.button.MateButton
+   android:id="@+id/MateButton8"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:drawableEnd="@drawable/ic_language_html5"
+   android:text="Html5"
+   app:backgroundTint="#00C853"
+   app:cornerRadius="30dp"
+   app:useScale="true"
+   android:layout_marginTop="@dimen/button_margin_top"/>
+
     
 ```
 
@@ -259,38 +231,34 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.code.material.MateButton
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:text="Github"
-    app:elevation="1dp"
-    android:layout_marginHorizontal="10dp"
-    android:drawableStart="@drawable/github"
-    app:backgroundTint="#FF4081"
-    app:cornerBottomStartRadius="30dp"
-    app:cornerTopStartRadius="30dp"
-    app:cornerBottomEndRadius="0dp"
-    app:cornerTopEndRadius="0dp"
-    app:rippleColor="#ffffff"
-    app:useScale="true"
-    android:id="@+id/DnButton9"
-    android:layout_marginBottom="10dp"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton9"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	app:backgroundTint="#FFFFFF"
+	app:strokeWidth="2dp"
+	app:strokeColor="#000000"
+	app:rippleColor="@color/ripplex"
+	app:cornerRadius="2dp"
+	app:useScale="true"
+	android:text="Do You"
+	android:textColor="#000000"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
     	
-<com.debashis.code.material.MateButton
-    android:layout_width="150dp"
-    android:layout_height="40dp"
-    android:text="React"
-    app:elevation="1dp"
-    android:layout_marginHorizontal="10dp"
-    android:drawableEnd="@drawable/react"
-    app:backgroundTint="#FF4081"
-    app:cornerBottomStartRadius="0dp"
-    app:cornerTopStartRadius="0dp"
-    app:cornerBottomEndRadius="30dp"
-    app:cornerTopEndRadius="30dp"
-    app:rippleColor="#ffffff"
-    app:useScale="true"
-    android:id="@+id/DnButton10"/>
+<com.debashis.code.material.button.MateButton
+    android:id="@+id/MateButton10"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	app:backgroundTint="#000000"
+	android:drawableStart="@drawable/ic_heart"
+	app:strokeWidth="2dp"
+    app:cornerRadius="2dp"
+	app:useScale="true"
+	android:text="Me  ?"
+	android:textColor="#FFFFFF"
+	android:layout_marginTop="@dimen/button_margin_top"/>
+
    
 ```
 
