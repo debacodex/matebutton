@@ -1,14 +1,14 @@
 # Material Button and Toast
 
 
-[![JitPack](https://img.shields.io/badge/JitPack-1.0.0-brightgreen.svg?style=for-the-badge)](https://jitpack.io/#debacodex/button-icon)        
+[![JitPack](https://img.shields.io/badge/JitPack-1.0.0-brightgreen.svg?style=for-the-badge)](https://jitpack.io/#debacodex/matebutton)        
 
 [![Blogger](https://img.shields.io/badge/Blogger-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://debacodes.blogspot.com)   
 
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/mr.deba.000?mibextid=ZbWKwL)
 
 
-# Coming Soon Gradient Button Source Code And Toast Source Code ❤️
+# Coming Soon Gradient Button Source Code  ❤️
 
 ## Screenshot
 <img src="https://github.com/debanikita/android-material/blob/d281a1e930d89d5c15a27d8d3f8ce2ee4596c2cf/material-button-style.png"/>
@@ -19,7 +19,7 @@ To start working with material button, you need to add its dependency into your 
 ### Dependency
 ```groovy
 dependencies {
-    implementation "com.github.debacodex:button-icon:1.0.0" //Androidx Library...
+    implementation "com.github.debacodex: matebutton:1.0.0" //Androidx Library...
 }
 ```
 
@@ -78,7 +78,7 @@ materialButton.setBackgroundParamsList(drawableParams, rippleParams);
 
 Use material button in the layout via xml
 ```XML
-<com.debashis.io.material.DnButton
+<com.debashis.code.material.MateButton
     android:id="@+id/materialButton"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -104,8 +104,8 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.io.material.button.DnButton
-    android:id="@+id/DnButton1"
+<com.debashis.code.material.MateButton
+    android:id="@+id/MateButton1"
     android:layout_width="150dp"
     android:layout_height="40dp"
     android:layout_marginHorizontal="10dp"
@@ -116,14 +116,12 @@ Use material button in the layout via xml
     app:strokeWidth="0dp"
     app:elevation="1dp"
     app:useScale="true"
-    app:backgroundTint="#651FFF"
-    android:layout_marginBottom="10dp"/>
+    app:backgroundTint="#651FFF"/>
     
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:id="@+id/DnButton2"
     android:layout_width="150dp"
     android:layout_height="40dp"
-    android:layout_marginHorizontal="10dp"
     app:cornerRadius="2dp"
     app:rippleColor="@color/white"
     app:strokeColor="@color/white"
@@ -141,11 +139,10 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:id="@+id/DnButton3"
     android:layout_width="150dp"
     android:layout_height="40dp"
-    android:layout_marginHorizontal="10dp"
     android:text="Python"
     app:cornerRadius="30dp"
     app:rippleColor="@color/white"
@@ -154,10 +151,9 @@ Use material button in the layout via xml
     app:elevation="1dp"
     app:useScale="true"
     android:drawableStart="@drawable/language_python"
-    app:backgroundTint="#FF1744"
-    android:layout_marginBottom="10dp"/>
+    app:backgroundTint="#FF1744"/>
     
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:id="@+id/DnButton4"
     android:layout_width="150dp"
     android:layout_height="40dp"
@@ -181,7 +177,7 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:layout_width="150dp"
     android:layout_height="40dp"
     android:text="Github"
@@ -198,7 +194,7 @@ Use material button in the layout via xml
     android:id="@+id/DnButton9"
     android:layout_marginBottom="10dp"/>
     	
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:layout_width="150dp"
     android:layout_height="40dp"
     android:text="React"
@@ -222,7 +218,7 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:layout_width="150dp"
    	android:layout_height="40dp"
     android:text="Debashis"
@@ -238,7 +234,7 @@ Use material button in the layout via xml
    	android:id="@+id/DnButton7"
    	android:layout_marginBottom="10dp"/>
    
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
    	android:layout_width="150dp"
    	android:layout_height="40dp"
    	android:text="Html5"
@@ -263,7 +259,7 @@ Use material button in the layout via xml
 
 ```XML
 
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:layout_width="150dp"
     android:layout_height="40dp"
     android:text="Github"
@@ -280,7 +276,7 @@ Use material button in the layout via xml
     android:id="@+id/DnButton9"
     android:layout_marginBottom="10dp"/>
     	
-<com.debashis.io.material.button.DnButton
+<com.debashis.code.material.MateButton
     android:layout_width="150dp"
     android:layout_height="40dp"
     android:text="React"
