@@ -1,4 +1,4 @@
-# Material Button and Toast
+# Material Button Design
 
 
 [![JitPack](https://img.shields.io/badge/JitPack-1.0.0-brightgreen.svg?style=for-the-badge)](https://jitpack.io/#debacodex/matebutton)        
