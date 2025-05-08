@@ -2,6 +2,7 @@
 
 
 [![JitPack](https://img.shields.io/badge/JitPack-1.0.0-brightgreen.svg?style=for-the-badge)](https://jitpack.io/#debacodex/matebutton)        
+[![Android CI](https://github.com/debacodex/matebutton/actions/workflows/android.yml/badge.svg)](https://github.com/debacodex/matebutton/actions/workflows/android.yml)
 
 [![Blogger](https://img.shields.io/badge/Blogger-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://debacodes.blogspot.com)   
 
