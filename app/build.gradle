@@ -39,24 +39,46 @@ afterEvaluate {
                 // Add Javadoc and sources JAR (optional)
                 artifact androidJavadocJar
                 artifact androidSourcesJar
+
+				pom {
+                name = 'Deba Codex'
+                description = 'Your project description'
+                url = 'https://github.com/debacodex/your-repo'
+                
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id = 'debacodex'
+                        name = 'Debacodex'
+                        email = 'debashissabar0@gmail.com'
+                    }
+                }
+                
+                scm {
+                    connection = 'scm:git:git://github.com/debacodex/matebutton.git'
+                    developerConnection = 'scm:git:ssh://github.com/debacodex/matebutton.git'
+                    url = 'https://github.com/debacodex/matebutton'
+                  }
+			   }
             }
         }
         
         repositories {
-            maven {
-                // Choose your repository:
-                
-                // Option 1: Local Maven repository
-                url = uri("${project.buildDir}/repos")
-                
-                // Option 2: Remote repository (Maven Central, GitHub Packages, etc.)
-                // url = uri("https://maven.pkg.github.com/yourusername/your-repo")
-                // credentials {
-                //     username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                //     password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-                // }
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/debacodex/matebutton"
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
             }
-        }
+           }
+		}
     }
 }
 // Tasks to generate Javadoc and sources JAR
