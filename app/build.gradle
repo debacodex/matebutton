@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
     compileSdkVersion 29
@@ -20,4 +23,60 @@ dependencies {
     compile 'androidx.appcompat:appcompat:1.0.0'
 	
     compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+// Publishing configuration
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                
+                groupId = 'com.github.debacodex'
+                artifactId = 'matebutton'
+                version = android.defaultConfig.versionName
+                
+                // Add Javadoc and sources JAR (optional)
+                artifact androidJavadocJar
+                artifact androidSourcesJar
+            }
+        }
+        
+        repositories {
+            maven {
+                // Choose your repository:
+                
+                // Option 1: Local Maven repository
+                url = uri("${project.buildDir}/repos")
+                
+                // Option 2: Remote repository (Maven Central, GitHub Packages, etc.)
+                // url = uri("https://maven.pkg.github.com/yourusername/your-repo")
+                // credentials {
+                //     username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                //     password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                // }
+            }
+        }
+    }
+}
+// Tasks to generate Javadoc and sources JAR
+task androidJavadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    android.libraryVariants.all { variant ->
+        if (variant.name == 'release') {
+            owner.classpath += variant.javaCompileProvider.get().classpath
+        }
+    }
+    exclude '**/R.html', '**/R.*.html', '**/index.html'
+}
+
+task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+    archiveClassifier.set('javadoc')
+    from androidJavadoc.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
 }
