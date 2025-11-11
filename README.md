@@ -1,7 +1,7 @@
 # Material Button Design
 
 
-[![Android CI](https://github.com/debacodex/matebutton/actions/workflows/android.yml/badge.svg)](https://github.com/debacodex/matebutton/actions/workflows/android.yml)
+[![Android CI](https://github.com/debacodex/matebutton/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/debacodex/matebutton/actions/workflows/android.yml)
 
 [![JitPack](https://img.shields.io/badge/JitPack-1.0.0-brightgreen.svg?style=for-the-badge)](https://jitpack.io/#debacodex/matebutton)        
 
