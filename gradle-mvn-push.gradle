@@ -1,8 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-import org.gradle.api.artifacts.maven.MavenDeployment
-
 def isReleaseBuild() {
   return VERSION_NAME.contains("SNAPSHOT") == false
 }
@@ -29,7 +27,8 @@ afterEvaluate { project ->
   uploadArchives {
     repositories {
       mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        // Remove the MavenDeployment type declaration
+        beforeDeployment { deployment -> signing.signPom(deployment) }
 
         pom.groupId = GROUP
         pom.artifactId = POM_ARTIFACT_ID
