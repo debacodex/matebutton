@@ -24,7 +24,7 @@ dependencies {
 	
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
-/*
+
 // Publishing configuration
 afterEvaluate {
     publishing {
@@ -91,4 +91,4 @@ task androidJavadoc(type: Javadoc) {
         }
     }
 	
-    */
+    
