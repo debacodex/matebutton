@@ -1,27 +1,8 @@
-/*
- * Copyright 2013 Chris Banes
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-version = VERSION_NAME
-group = GROUP
-
 def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == true
+    return VERSION_NAME.contains("SNAPSHOT") == false
 }
 
 def getReleaseRepositoryUrl() {
@@ -42,121 +23,111 @@ def getRepositoryPassword() {
     return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
 }
 
-def configurePom(pom) {
-    pom.name = POM_NAME
-    pom.packaging = POM_PACKAGING
-    pom.description = POM_DESCRIPTION
-    pom.url = POM_URL
-
-    pom.scm {
-        url = POM_SCM_URL
-        connection = POM_SCM_CONNECTION
-        developerConnection = POM_SCM_DEV_CONNECTION
-    }
-
-    pom.licenses {
-        license {
-            name = POM_LICENCE_NAME
-            url = POM_LICENCE_URL
-            distribution = POM_LICENCE_DIST
-        }
-    }
-
-    pom.developers {
-        developer {
-            id = POM_DEVELOPER_ID
-            name = POM_DEVELOPER_NAME
-        }
-    }
-}
+// Determine if this is an Android project
+def isAndroidProject = project.plugins.hasPlugin('com.android.library') || 
+                       project.plugins.hasPlugin('com.android.application')
 
 afterEvaluate { project ->
-    publishing {
-        repositories {
-            maven {
-                def releasesRepoUrl = getReleaseRepositoryUrl()
-                def snapshotsRepoUrl = getSnapshotRepositoryUrl()
-                url = isReleaseBuild() ? releasesRepoUrl : snapshotsRepoUrl
-
-                credentials(PasswordCredentials) {
-                    username = getRepositoryUsername()
-                    password = getRepositoryPassword()
-                }
-            }
-			
-			maven {
-                def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
-                def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-           }
-        }
-    }
-
-    if (project.getPlugins().hasPlugin('com.android.application') ||
-            project.getPlugins().hasPlugin('com.android.library')) {
-
+    // Create tasks based on project type
+    if (isAndroidProject) {
+        // Android library tasks
         task androidJavadocs(type: Javadoc) {
-            source = android.sourceSets.main.java.source
+            failOnError = false
+            source = android.sourceSets.main.java.srcDirs
             classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-            excludes = ['**/*.kt']
         }
 
         task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-            classifier = 'javadoc'
+            archiveClassifier.set('javadoc')
             from androidJavadocs.destinationDir
         }
 
         task androidSourcesJar(type: Jar) {
-            classifier = 'sources'
-            from android.sourceSets.main.java.source
+            archiveClassifier.set('sources')
+            from android.sourceSets.main.java.sourceFiles
+        }
+    } else {
+        // Java library tasks
+        task sourcesJar(type: Jar) {
+            archiveClassifier.set('sources')
+            from sourceSets.main.allSource
+        }
+
+        task javadocJar(type: Jar, dependsOn: javadoc) {
+            archiveClassifier.set('javadoc')
+            from javadoc.destinationDir
         }
     }
 
-    if (JavaVersion.current().isJava8Compatible()) {
-        allprojects {
-            tasks.withType(Javadoc) {
-                options.addStringOption('Xdoclint:none', '-quiet')
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = GROUP
+                artifactId = POM_ARTIFACT_ID
+                version = VERSION_NAME
+
+                if (isAndroidProject) {
+                    // For Android libraries
+                    def packageLibrary = tasks.findByName("packageReleaseBundle") 
+                        ?: tasks.findByName("bundleReleaseAar") 
+                        ?: tasks.findByName("bundleRelease")
+                    
+                    if (packageLibrary != null) {
+                        artifact packageLibrary
+                    }
+                    
+                    artifact androidSourcesJar
+                    artifact androidJavadocsJar
+                } else {
+                    // For Java libraries
+                    from components.java
+                    artifact sourcesJar
+                    artifact javadocJar
+                }
+
+                pom {
+                    name = POM_NAME
+                    packaging = POM_PACKAGING
+                    description = POM_DESCRIPTION
+                    url = POM_URL
+
+                    scm {
+                        url = POM_SCM_URL
+                        connection = POM_SCM_CONNECTION
+                        developerConnection = POM_SCM_DEV_CONNECTION
+                    }
+
+                    licenses {
+                        license {
+                            name = POM_LICENCE_NAME
+                            url = POM_LICENCE_URL
+                            distribution = POM_LICENCE_DIST
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = POM_DEVELOPER_ID
+                            name = POM_DEVELOPER_NAME
+                        }
+                    }
+                }
             }
         }
-    }
 
-    if (JavaVersion.current().isJava9Compatible()) {
-        allprojects {
-            tasks.withType(Javadoc) {
-                options.addBooleanOption('html5', true)
+        repositories {
+            maven {
+                url = isReleaseBuild() ? getReleaseRepositoryUrl() : getSnapshotRepositoryUrl()
+                credentials {
+                    username = getRepositoryUsername()
+                    password = getRepositoryPassword()
+                }
             }
         }
-    }
-
-    artifacts {
-        if (project.getPlugins().hasPlugin('com.android.application') ||
-                project.getPlugins().hasPlugin('com.android.library')) {
-            archives androidSourcesJar
-            archives androidJavadocsJar
-        }
-    }
-
-    android.libraryVariants.all { variant ->
-        tasks.androidJavadocs.doFirst {
-            classpath += files(variant.javaCompileProvider.get().classpath.files.join(File.pathSeparator))
-        }
-    }
-
-    publishing.publications.all { publication ->
-        publication.groupId = GROUP
-        publication.version = VERSION_NAME
-
-        publication.artifact androidSourcesJar
-        publication.artifact androidJavadocsJar
-
-        configurePom(publication.pom)
     }
 
     signing {
-        publishing.publications.all { publication ->
-            sign publication
-        }
-		
-		}
-    
+        required { isReleaseBuild() }
+        sign publishing.publications.maven
+    }
 }
