@@ -1,6 +1,8 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
+import org.gradle.api.artifacts.maven.MavenDeployment
+
 def isReleaseBuild() {
   return VERSION_NAME.contains("SNAPSHOT") == false
 }
