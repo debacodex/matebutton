@@ -80,6 +80,11 @@ afterEvaluate {
            }
 		}
     }
+	signing {
+    // Signs the "release" publication
+    sign(publishing.getPublications().getByName("release"));
+    setRequired(true); // Fail build if signing fails
+	}
 }
 // Tasks to generate Javadoc and sources JAR
 task androidJavadoc(type: Javadoc) {
@@ -91,8 +96,4 @@ task androidJavadoc(type: Javadoc) {
         }
     }
 	
-    signing {
-    // Signs the "release" publication
-    sign(publishing.getPublications().getByName("release"));
-    setRequired(true); // Fail build if signing fails
-	}
+    
