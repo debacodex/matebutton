@@ -34,7 +34,7 @@ afterEvaluate {
                 
                 groupId = 'com.github.debacodex'
                 artifactId = 'matebutton'
-                version = android.defaultConfig.versionName
+                version = '1.0.0'
                 
                 // Add Javadoc and sources JAR (optional)
                 artifact androidJavadocJar
