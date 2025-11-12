@@ -93,14 +93,6 @@ afterEvaluate {
     setRequired(true); // Fail build if signing fails
 	}
 }
-// Tasks to generate Javadoc and sources JAR
-task androidJavadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    android.libraryVariants.all { variant ->
-        if (variant.name == 'release') {
-            owner.classpath += variant.javaCompileProvider.get().classpath
-        }
-    }
+
 	
     
