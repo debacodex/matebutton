@@ -3,7 +3,7 @@ plugins {
    // id 'maven-publish'
 	//id 'signing'
 }
-apply from: '../gradle-mvn-push.gradle'
+//apply from: '../gradle-mvn-push.gradle'
 android {
     compileSdkVersion 31
   //  buildToolsVersion "30.0.3"
